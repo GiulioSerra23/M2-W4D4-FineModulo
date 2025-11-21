@@ -25,7 +25,7 @@ namespace M1.ProjectTest
         public Hero(string name, int hp, Stats baseStats, ELEMENT resistance, ELEMENT weakness, Weapon weapon)
         {
             Name = name;
-            SetHp(hp);
+            Hp = hp;
             BaseStats = baseStats;
             Resistance = resistance;
             Weakness = weakness;
@@ -50,7 +50,7 @@ namespace M1.ProjectTest
             }
         }
 
-        public void SetHp(int hp) => _hp = Mathf.Max(0, hp);
+        public int Hp { get => _hp; set => SetHp(value); }
 
         public Stats BaseStats { get => _baseStats; set => _baseStats = value; }
 
@@ -63,7 +63,9 @@ namespace M1.ProjectTest
 
         //-------------------------------- Functions() --------------------------------//
 
-        public void AddHp(int amount) => SetHp(_hp + amount);
+        private void SetHp(int hp) => _hp = Mathf.Max(0, hp);
+
+        private void AddHp(int amount) => SetHp(_hp + amount);
 
         public void TakeDamage(int damage) => AddHp(-damage);
 
