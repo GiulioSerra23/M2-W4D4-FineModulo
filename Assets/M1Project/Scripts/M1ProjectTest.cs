@@ -24,7 +24,7 @@ public class M1ProjectTest : MonoBehaviour
 
         heroA.BaseStats = new Stats(50, 15, 10, 70, 50, 60, 20);   // Stats(atk, def, res, spd, crt, aim, eva)
 
-        heroA.Weapon = new Weapon("MoonShadow Daggers", Weapon.DAMAGE_TYPE.PHYSICAL, ELEMENT.DARK, heroA.Weapon.BonusStats);
+        heroA.Weapon = new Weapon("MoonShadow Daggers", Weapon.DAMAGE_TYPE.PHYSICAL, ELEMENT.DARK, heroA.Weapon.BonusStats);   // <-- Cambiare il DMG_TYPE in HAND per far combattere senza l'arma
 
         heroA.Weapon.BonusStats = new Stats(20, 10, 15, 15, 10, 20, 10);
 

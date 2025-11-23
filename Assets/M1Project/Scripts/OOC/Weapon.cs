@@ -7,7 +7,7 @@ namespace M1.ProjectTest
     [System.Serializable]
     public class Weapon
     {
-        public enum DAMAGE_TYPE { MAGICAL, PHYSICAL }
+        public enum DAMAGE_TYPE { HAND, MAGICAL, PHYSICAL }   // <-- Ho aggiunto il tipo di danno "HAND" nel caso in cui l'Hero dovesse combattere a mani nude
 
         [SerializeField] private string _name;
 
@@ -48,5 +48,4 @@ namespace M1.ProjectTest
 
         public Stats BonusStats { get => _bonusStats; set => _bonusStats = value; }
     }
-
 }

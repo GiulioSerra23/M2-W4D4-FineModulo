@@ -70,8 +70,19 @@ namespace M1.ProjectTest
 
         public static int CalculateDamage(Hero attacker, Hero defender)
         {
-            Stats totalStatsAttacker = Stats.Sum(attacker.BaseStats, attacker.Weapon.BonusStats);
-            Stats totalStatsDefender = Stats.Sum(defender.BaseStats, defender.Weapon.BonusStats);
+            Stats totalStatsAttacker = attacker.BaseStats;
+            Stats totalStatsDefender = defender.BaseStats;
+
+            if (attacker.Weapon.DmgType != Weapon.DAMAGE_TYPE.HAND)   // <-- If che controlla se il DmgType dell'arma è diverso da "HAND" in quel caso fa la somma delle Stats
+            {
+                totalStatsAttacker = Stats.Sum(attacker.BaseStats, attacker.Weapon.BonusStats);
+            }
+
+            if (defender.Weapon.DmgType != Weapon.DAMAGE_TYPE.HAND)
+            {
+                totalStatsDefender = Stats.Sum(defender.BaseStats, defender.Weapon.BonusStats);
+            }
+
 
             int defenseType = 0;
             switch (attacker.Weapon.DmgType)
@@ -83,6 +94,10 @@ namespace M1.ProjectTest
                 case Weapon.DAMAGE_TYPE.PHYSICAL:
                     defenseType = totalStatsDefender._def;
                     break;
+                    
+                case Weapon.DAMAGE_TYPE.HAND:
+                    defenseType = totalStatsDefender._def;
+                    break;                
             }
 
             float baseDamage = totalStatsAttacker._atk - defenseType;

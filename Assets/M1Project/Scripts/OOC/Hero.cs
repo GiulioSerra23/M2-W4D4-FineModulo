@@ -67,7 +67,7 @@ namespace M1.ProjectTest
 
         private void AddHp(int amount) => SetHp(_hp + amount);
 
-        public void TakeDamage(int damage) => AddHp(-damage);
+        public void TakeDamage(int damage) => AddHp(- damage);
 
         public bool IsAlive() => _hp > 0 ? true : false;
     }
